@@ -100,6 +100,29 @@ Condition Objects has to be build with this schema :
 ```
 
 ```javascript
+  // Insert new document with login=root, firstname=John, lastName=Doe, Age=45
+  mysqlJson.bulkInsert('myTable', [{
+    login:'root',
+    firstName:'John',
+    lastName:'Doe',
+    age:45
+  },{
+    login:'root1',
+    firstName:'JohnD',
+    lastName:'DoeE',
+    age:47
+  },{
+    login:'root2',
+    firstName:'JohnG',
+    lastName:'DoeH',
+    age:48
+  }], function(err, response) {
+    if (err) throw err;
+    console.log(response);
+  });
+```
+
+```javascript
   // Update any documents and set lastname=foo, age=47 where login=root
   mysqlJson.update('myTable',
   {lastName:'Foo', age:27},
